@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xlx.db.mapper.BlogMapper">
+  <!--  resultMap example -->
+  <!--  <resultMap id="userResultMap" type="User">-->
+  <!--    <id property="id" column="user_id"/>-->
+  <!--    <result property="username" column="user_name"/>-->
+  <!--    <result property="password" column="hashed_password"/>-->
+  <!--  </resultMap>-->
+
+  <!--  <select id="selectUsers" resultMap="userResultMap">-->
+  <!--    select user_id, user_name, hashed_password-->
+  <!--    from some_table-->
+  <!--    where id = #{id}-->
+  <!--  </select>-->
+  <!-- !!!  resultMap example -->
+
+  <select id="select" parameterType="int" resultType="com.xlx.db.model.Blog">
+    SELECT *
+    FROM blog
+    WHERE ID = #{id}
+  </select>
+
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    insert into blog (title, content)
+    values ("${title}", #{content})
+  </insert>
+
+  <insert id="batchInsert" useGeneratedKeys="true"
+          keyProperty="id">
+    insert into blog (title,content) values
+    <foreach item="item" collection="list" separator=",">
+      (#{item.title}, #{item.content})
+    </foreach>
+  </insert>
+
+  <update id="update">
+    update blog
+    set title=#{title},
+        content=#{content}
+    where id = #{id}
+  </update>
+
+  <delete id="delete">
+    delete
+    from blog
+    where id = #{id}
+  </delete>
+
+  <select id="findTitleLike" resultType="com.xlx.db.model.Blog">
+    <bind name="pattern" value="'%' + _parameter.getTitle() + '%'" />
+    select * from blog where 1
+    <if test="title != null">
+      and title like #{pattern}
+    </if>
+  </select>
+</mapper>

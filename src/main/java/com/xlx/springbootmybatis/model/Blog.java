@@ -1,5 +1,7 @@
 package com.xlx.springbootmybatis.model;
 
+import javax.validation.constraints.Size;
+
 public class Blog {
 
     public Blog() {
@@ -26,6 +28,7 @@ public class Blog {
      *
      * @mbg.generated Sun Jul 29 23:14:41 CST 2018
      */
+    @Size(min = 4,max = 6,message = "标题长度必须在{min}和{max}之间")
     private String title;
 
     /**

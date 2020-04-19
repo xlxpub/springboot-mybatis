@@ -61,8 +61,11 @@
             <!--<generatedKey column="ID" sqlStatement="select uuid_short()" identity="false"/>-->
         <!--</table>-->
 
-        <table tableName="blog" domainObjectName="Blog" >
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
+        <!--<table tableName="blog" domainObjectName="Blog" >-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
+        <table tableName="log" domainObjectName="Log">
+            <generatedKey column="id" sqlStatement="select last_insert_id()" identity="true" />
         </table>
 
     </context>

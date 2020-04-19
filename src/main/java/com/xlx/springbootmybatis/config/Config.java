@@ -1,4 +1,4 @@
-package com.xlx.springbootmybatis;
+package com.xlx.springbootmybatis.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
