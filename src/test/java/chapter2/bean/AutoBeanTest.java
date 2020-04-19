@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
 
 /**
  * @author xueleixi
@@ -16,9 +17,9 @@ import static org.junit.Assert.assertNotNull;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = CarConfig.class)
-public class BeanTest
+public class AutoBeanTest
 {
-  Logger logger= LoggerFactory.getLogger(BeanTest.class);
+  Logger logger= LoggerFactory.getLogger(AutoBeanTest.class);
 
   private CarFactory iCarFactory;
 
@@ -32,11 +33,13 @@ public class BeanTest
   @Autowired
   CarFactory carFactory;
 
+
+
   @Test
   public void carFactoryShouldNotBeNull()
   {
     assertNotNull(carFactory);
     logger.info(carFactory.getClass().getName());
-//    assertSame(iCarFactory,carFactory);
+    assertSame(iCarFactory,carFactory);
   }
 }
