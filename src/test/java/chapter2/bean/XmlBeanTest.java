@@ -19,17 +19,6 @@ public class XmlBeanTest
 {
   Logger logger= LoggerFactory.getLogger(XmlBeanTest.class);
 
-  private CarFactory iCarFactory;
-
-//  @Autowired
-  public void setCarFactory(CarFactory carFactory)
-  {
-    logger.info("setting carFactory");
-    this.iCarFactory = carFactory;
-  }
-
-//  @Autowired
-//  CarFactory carFactory;
 
   @Autowired
   Wheel wheel;
@@ -37,9 +26,7 @@ public class XmlBeanTest
   @Test
   public void carFactoryShouldNotBeNull()
   {
-//    assertNotNull(carFactory);
-//    logger.info(carFactory.getClass().getName());
-//    assertSame(iCarFactory,carFactory);
     Assert.assertNotNull(wheel);
+    wheel.run();
   }
 }

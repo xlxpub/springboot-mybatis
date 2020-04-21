@@ -20,6 +20,7 @@ public class SmallCarFactory implements CarFactory
     logger.info("SmallCarFactory construct");
   }
 
+
   @Override
   public void produce()
   {

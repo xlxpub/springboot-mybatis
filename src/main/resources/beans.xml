@@ -3,5 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="wheel" class="chapter2.bean.SmallWheel"></bean>
+  <bean id="wheel" class="chapter2.bean.SmallWheel">
+    <property name="name" value="four"/>
+    <property name="count" value="4"/>
+  </bean>
+  <bean id="smallWheel" class="chapter2.bean.SmallWheel"></bean>
+  <bean name="smallCarFactory" class="chapter2.bean.SmallCarFactory"></bean>
 </beans>
